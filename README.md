@@ -1,5 +1,3 @@
-> **Note:** To access all shared projects, get information about environment setup, and view other guides, please visit [Explore-In-HMOS-Wearable Index](https://github.com/Explore-In-HMOS-Wearable/hmos-index).
-
 # Reafy
 
 Reflex Trainer is a smartwatch application built with ArkTS, designed to help users improve and measure their reaction speed in a fun and interactive way.
@@ -14,12 +12,12 @@ The goal of the app is to provide simple, enjoyable tools for users to test and 
 # Preview
 
 <div>
-    <img src="screenshots/1.PNG" width="24%">
-    <img src="screenshots/2.PNG" width="24%">
-    <img src="screenshots/3.PNG" width="24%">
+<img src="screenshots/1.PNG" width="24%">
+<img src="screenshots/2.PNG" width="24%">
+<img src="screenshots/3.PNG" width="24%">
 </div>
 
-# Use Cases:
+# Use Cases
 
 **Clicking Game**
 * Tap the circular target that appears at a random position.

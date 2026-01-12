@@ -1,3 +1,8 @@
+interface RandomValueInterface {
+  val1: number;
+  val2: number;
+}
+
 @Component
 export struct ClickingGame {
   @State targetX: number = 100
@@ -5,19 +10,36 @@ export struct ClickingGame {
   @State targetSize: number = 80
   @State score: number = 0
   @State isActive: boolean = false
+  uiContext: UIContext | undefined = undefined;
 
   aboutToAppear() {
     this.startNewTarget()
+    this.uiContext = this.getUIContext();
+    if (!this.uiContext) {
+      return;
+    }
   }
 
-  startNewTarget() {
+  randomNumberGenerator(): RandomValueInterface {
+    const t = Date.now();
+
+    let val1 = (t ^ (t >> 6)) % 10;
+    let val2 = (t ^ (t >> 7)) % 10;
+
+    val1 = (val1 ^ (val1 >> 31)) - (val1 >> 31);
+    val2 = (val2 ^ (val2 >> 31)) - (val2 >> 31);
+
+    return { val1, val2 };
+  }
+
+  async startNewTarget() {
     this.isActive = true
     this.targetSize = 80
 
-    this.targetX = Math.random() * 250
-    this.targetY = Math.random() * 250
+    this.targetX = this.randomNumberGenerator().val1 * 25
+    this.targetY = this.randomNumberGenerator().val2 * 25
 
-    animateTo({ duration: 5000 }, () => {
+    this.uiContext?.animateTo({ duration: 5000 }, () => {
       this.targetSize = 20
     })
 
