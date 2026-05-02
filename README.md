@@ -12,9 +12,10 @@ The goal of the app is to provide simple, enjoyable tools for users to test and 
 # Preview
 
 <div>
-<img src="screenshots/1.PNG" width="24%">
-<img src="screenshots/2.PNG" width="24%">
-<img src="screenshots/3.PNG" width="24%">
+<img src="screenshots/img.png" width="24%">
+<img src="screenshots/img1.png" width="24%">
+<img src="screenshots/img2.png" width="24%">
+<img src="screenshots/img3.png" width="24%">
 </div>
 
 # Use Cases
@@ -45,10 +46,19 @@ The goal of the app is to provide simple, enjoyable tools for users to test and 
 # Directory Structure
    ```
    entry/src/main/ets/
+    ├── components/
+    │ ├── BackButton.ets                // Reaction Game Page
+    ├── entryability/
+    │ ├── EntryAbility.ets                
+    ├── entryabackupability/
+    │ ├── EntryBackupAbility.ets                
     ├── pages/
     │ ├── ReactionGame.ets              // Reaction Game Page
     │ ├── ClickingGame.ets              // Clicking Game Page  
+    │ ├── MemoryGame.ets                // Memory Game Page  
     │ ├── Index.ets                     // Home Page
+    ├── utils/
+    │ ├── random.ets                     
 ```
 
 # Constraints and Restrictions

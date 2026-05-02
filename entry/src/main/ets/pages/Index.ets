@@ -1,5 +1,6 @@
 import { ClickingGame } from './ClickingGame'
 import { ReactionGame } from './ReactionGame'
+import { MemoryGame } from './MemoryGame'
 
 @Entry
 @Component
@@ -12,6 +13,8 @@ struct MainPage {
       ClickingGame()
     } else if (name === 'ReactionGame') {
       ReactionGame()
+    } else if (name === 'MemoryGame') {
+      MemoryGame()
     }
   }
 
@@ -19,8 +22,9 @@ struct MainPage {
     Navigation(this.pageStack) {
       RelativeContainer() {
         Column() {
-          this.button('Clicking Game', this.clickingGame)
-          this.button('Reaction Game', this.reactionGame)
+          this.button($r('app.string.clicking_game_title'), this.clickingGame)
+          this.button($r('app.string.reaction_game_title'), this.reactionGame)
+          this.button($r('app.string.memory_game_title'), this.memoryGame)
         }
         .alignRules({
           center: { anchor: '__container__', align: VerticalAlign.Center },
@@ -28,7 +32,7 @@ struct MainPage {
         })
       }
       .width('100%')
-      .backgroundColor('#F7F4FF')
+      .backgroundColor($r('app.color.color_surface_home'))
     }
     .hideTitleBar(true)
     .navDestination(this.PagesMap)
@@ -42,25 +46,28 @@ struct MainPage {
   private reactionGame = () => {
     this.pageStack.pushPathByName('ReactionGame', null);
   }
+  private memoryGame = () => {
+    this.pageStack.pushPathByName('MemoryGame', null);
+  }
 
   @Builder
-  button(text: string, onClick: () => void) {
+  button(text: ResourceStr, onClick: () => void) {
     Button({ type: ButtonType.Normal }) {
       Column() {
         Text(text)
           .fontSize(14)
           .fontWeight(FontWeight.Bold)
-          .fontColor('#FFFFFF')
+          .fontColor($r('app.color.color_on_primary'))
         Rect()
           .radius(1)
-          .fill('#C5B3FF')
+          .fill($r('app.color.color_primary_light'))
           .height(2)
           .width(100)
       }
     }
     .width('70%')
     .height('15%')
-    .backgroundColor('#A78BFA')
+    .backgroundColor($r('app.color.color_primary'))
     .borderRadius(24)
     .onClick(onClick)
     .margin({
